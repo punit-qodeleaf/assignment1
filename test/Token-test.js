@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 
 describe("Token", function () {
-  
+
   let Token;
   let tkn;
   let seller;
@@ -13,7 +13,7 @@ describe("Token", function () {
     Token = await ethers.getContractFactory("Token");
     [seller, firstBuyer, secondBuyer, ...addrs] = await ethers.getSigners();
 
-    tkn = await Token.deploy();
+    tkn = await Token.deploy("Token", "tkn", 3, 100000);
   });
 
   it("Should mint token for owner", async function () {
@@ -28,12 +28,12 @@ describe("Token", function () {
 
   it("Should not mint token via other address", async function () {
 
-    expect( tkn.connect(firstBuyer).mint(firstBuyer.address, 100)).to.be.revertedWith("Ownable: caller is not the owner");
+    expect(tkn.connect(firstBuyer).mint(firstBuyer.address, 100)).to.be.revertedWith("Ownable: caller is not the owner");
 
   });
 
-  it("check if owner is correct", async function () { 
+  it("check if owner is correct", async function () {
     expect(await tkn.owner()).to.equal(seller.address);
-   });
+  });
 
 });
