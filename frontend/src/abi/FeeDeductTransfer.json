@@ -5,6 +5,26 @@
         "internalType": "uint256",
         "name": "feePercent_",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_symbol",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "decimal",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "cappedSupply_",
+        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",
@@ -161,12 +181,44 @@
   },
   {
     "inputs": [],
+    "name": "cap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "decimals",
     "outputs": [
       {
         "internalType": "uint8",
         "name": "",
         "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_decimals",
+        "type": "uint256"
+      }
+    ],
+    "name": "decimals",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "pure",

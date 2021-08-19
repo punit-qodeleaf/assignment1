@@ -14,11 +14,11 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const TransferToken = await hre.ethers.getContractFactory("TransferToken");
-  const ttoken = await TransferToken.deploy(10);
-  await ttoken.deployed();
+  const FDTransfer = await hre.ethers.getContractFactory("FeeDeductTransfer");
+  const fdtransfer = await FDTransfer.deploy(10, "USDC", "ud", 3, 1000000);
+  await fdtransfer.deployed();
 
-  console.log("Token deployed to:", ttoken.address);
+  console.log("Token deployed to:", fdtransfer.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
